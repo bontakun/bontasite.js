@@ -1,0 +1,10 @@
+{
+    "name": "bontablog", 
+    "version": "1.0.0", 
+    "private": true, 
+    "dependencies": {
+      "express": "2.5.9", 
+      "stache": "0.1.0",
+      "sqlite3": "2.1.1"
+  	}
+}

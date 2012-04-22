@@ -1,0 +1,55 @@
+html, body, input, textarea {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+div#navigation, div#mainContent {
+    padding-top: 0.5em;
+    width: 600px;
+    margin: auto;
+}
+
+h1 {
+    font-size: 20pt;
+}
+
+h1 span {
+    color: #555555;
+    font-size: 16pt;
+}
+
+h2 {
+    font-size: 16pt;
+}
+
+h2 span {
+    font-size: 14pt;
+}
+
+a, a:hover, a:active, a:visited {
+    color: #000000;
+    text-decoration: none;
+}
+
+a:hover, a:active {
+    font-width: bold;
+    text-decoration: underline;
+}
+
+.middle {
+    vertical-align: middle;
+}
+
+/* blog */
+
+a.postTitle {
+    float: left;
+}
+
+.postTimestamp {
+    float: right;
+}
+
+div.postBody {
+    padding-top: 1em;
+    clear: both;
+}
