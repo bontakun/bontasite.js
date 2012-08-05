@@ -30,8 +30,9 @@ div#navigation {
 }
 
 div#navigation a {
-	padding-left: 10px;
-	padding-right: 40px;
+	padding: 3px;
+	margin-left: 10px;
+	margin-right: 40px;
 }
 
 h1 {
@@ -51,17 +52,28 @@ h2 span {
     font-size: 14pt;
 }
 
+h2.subtitle {
+	font-style: italic;
+}
+
 a, a:hover, a:active, a:visited {
     color: #000000;
     text-decoration: none;
 }
 
 a:hover, a:active {
+	background: #d6d6d6;
     text-decoration: none;
 }
 
 .middle {
     vertical-align: middle;
+}
+
+img.headerImage {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 /* contact */
