@@ -2,7 +2,7 @@ var express = require('express');
 var app = module.exports = express.createServer();
 
 // Configuration
-app.configure(function(){
+app.configure(function() {
     app.set('views', __dirname + '/views');
     app.set('view engine', 'mustache');
     app.use(express.bodyParser());
@@ -12,7 +12,7 @@ app.configure(function(){
     app.register(".mustache", require('stache'));
 });
 
-app.configure('development', function(){
+app.configure('development', function() {
     app.use(express.errorHandler({ 
         dumpExceptions: true, 
         showStack: true 
@@ -24,20 +24,29 @@ app.configure('production', function(){
 });
 
 // Routes
-var index = require('./lib/index.js')
+var index = require('./controllers/index.js')
 app.get('/', index.indexRequest);
+app.post('/', index.indexRequest);
 
-var blog = require('./lib/blog.js');
-app.get('/blog/:post?', blog.blogRequest);
+var blog = require('./controllers/blog.js');
+app.get('/blog/page/:pageNumber', blog.blogRequest);
+app.post('/blog/page/:pageNumber', blog.blogRequest);
+app.get('/blog/:post', blog.blogPostRequest);
+app.post('/blog/:post', blog.blogPostRequest);
+app.get('/blog', blog.blogRequest);
+app.post('/blog', blog.blogRequest);
 
-var projects = require('./lib/projects.js');
+var projects = require('./controllers/projects.js');
 app.get('/projects', projects.projectsRequest);
+app.post('/projects', projects.projectsRequest);
 
-var contact = require('./lib/contact.js');
+var contact = require('./controllers/contact.js');
 app.get('/contact', contact.contactRequest);
+app.post('/contact', contact.contactRequest);
 
-var about = require('./lib/about.js');
+var about = require('./controllers/about.js');
 app.get('/about', about.aboutRequest);
+app.post('/about', about.aboutRequest);
 
 app.listen(7401);
 console.log("Express server listening on port %d", app.address().port);

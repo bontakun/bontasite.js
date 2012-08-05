@@ -1,15 +1,19 @@
-<h1>Contact</h1>
+<form id="contactForm" action="/contact" method="POST">
+	{{#wasSubmitted}}
+	<p>Thanks for the feedback.</p>
+	{{/wasSubmitted}}
 
-<form>
-    Name
+    Your Name:
     <input type="text" name="name">
     
-    Return Address 
+    Return Email Address:
     <input type="email" name="returnAddress">
     
-    Subject
+    Subject:
     <input type="text" name="subject">
     
-    Message
+    Message:
     <textarea name="message"></textarea>
+    
+    <input type="submit" id="submitButton" value="Submit">
 </form>
