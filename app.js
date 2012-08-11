@@ -25,28 +25,29 @@ app.configure('production', function(){
 
 // Routes
 var index = require('./controllers/index.js')
-app.get('/', index.indexRequest);
-app.post('/', index.indexRequest);
+app.all('/', index.request);
 
+//TODO: clean up this routing
 var blog = require('./controllers/blog.js');
-app.get('/blog/page/:pageNumber', blog.blogRequest);
-app.post('/blog/page/:pageNumber', blog.blogRequest);
-app.get('/blog/:post', blog.blogPostRequest);
-app.post('/blog/:post', blog.blogPostRequest);
-app.get('/blog', blog.blogRequest);
-app.post('/blog', blog.blogRequest);
+app.all('/blog/page/:pageNumber', blog.request);
+app.all('/blog/post/:post', blog.postRequest);
+app.all('/blog', blog.request);
 
 var projects = require('./controllers/projects.js');
-app.get('/projects', projects.projectsRequest);
-app.post('/projects', projects.projectsRequest);
+app.all('/projects', projects.request);
 
 var contact = require('./controllers/contact.js');
-app.get('/contact', contact.contactRequest);
-app.post('/contact', contact.contactRequest);
+app.all('/contact', contact.request);
 
 var about = require('./controllers/about.js');
-app.get('/about', about.aboutRequest);
-app.post('/about', about.aboutRequest);
+app.all('/about', about.request);
+
+//var fourOFour = require('./controllers/404.js');
+//app.all('*', fourOFour.request);
 
 app.listen(7401);
 console.log("Express server listening on port %d", app.address().port);
+
+process.on('uncaughtException', function(error) {
+  console.error("Uncaught exception occurred: " + error);
+});

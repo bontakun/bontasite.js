@@ -6,14 +6,14 @@ html, body {
     background-color: #333333;
     height: 100%;
     padding: 0;
-    margin: 0;	
+    margin: 0;    
 }
 
 div#pageWrapper {
-	padding: 5px 20px 5px 20px;
-	min-height: 100%;
-	background-color: white;
-	width: 930px;
+    padding: 5px 20px 5px 20px;
+    min-height: 100%;
+    background-color: white;
+    width: 930px;
     margin: auto;
     box-shadow: 0 0 5px 6px #555555;
 }
@@ -23,16 +23,16 @@ div#navigation, div#mainContent {
 }
 
 div#navigation {
-	border-top: 1px solid #d6d6d6;
-	border-bottom: 1px solid #d6d6d6;
-	padding-bottom: 3px;
-	padding-top: 3px;
+    border-top: 1px solid #d6d6d6;
+    border-bottom: 1px solid #d6d6d6;
+    padding-bottom: 3px;
+    padding-top: 3px;
 }
 
 div#navigation a {
-	padding: 3px;
-	margin-left: 10px;
-	margin-right: 40px;
+    padding: 3px;
+    margin-left: 10px;
+    margin-right: 40px;
 }
 
 h1 {
@@ -53,7 +53,7 @@ h2 span {
 }
 
 h2.subtitle {
-	font-style: italic;
+    font-style: italic;
 }
 
 a, a:hover, a:active, a:visited {
@@ -62,7 +62,7 @@ a, a:hover, a:active, a:visited {
 }
 
 a:hover, a:active {
-	background: #d6d6d6;
+    background: #d6d6d6;
     text-decoration: none;
 }
 
@@ -71,21 +71,21 @@ a:hover, a:active {
 }
 
 img.headerImage {
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* contact */
 
 form#contactForm input[type=email], form#contactForm input[type=text], form#contactForm textarea {
-	width: 100%;
+    width: 100%;
 }
 
 form#contactForm input#submitButton {
-	display: block;
-	margin-left: auto;
-	margin-right: 0;
+    display: block;
+    margin-left: auto;
+    margin-right: 0;
 }
 
 /* blog */
@@ -102,4 +102,17 @@ div.postBody {
     padding-top: 1em;
     clear: both;
     padding-bottom: 5em;
+}
+
+div#pageBar {
+    clear: both;
+    padding-bottom: 20px;
+}
+
+a#previousPage {
+    float: left;
+}
+
+a#nextPage {
+    float: right;
 }

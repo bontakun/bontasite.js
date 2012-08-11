@@ -1,9 +1,11 @@
-module.exports.contactRequest = contactRequest;
+module.exports = {
+	request: request
+};
 
 var nodemailer = require('nodemailer');
 var smtpTransport = nodemailer.createTransport("Sendmail",{});
 
-function contactRequest(request, response) {
+function request(request, response) {
 
 	var name = request.body.name || request.query.name;
 	var email = request.body.returnAddress || request.query.returnAddress;
@@ -19,10 +21,9 @@ function contactRequest(request, response) {
 		    subject: subject,
 		    text: message
 		}, function(error, response){
-		    if (error)
-		        console.log(error);
-		    else
-		        console.log("Message sent: " + response.message);
+		    if (error) {
+		        console.error("Error sending email:" + error);
+		    }
 		});
 	}
 	

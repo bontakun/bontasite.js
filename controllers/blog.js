@@ -1,33 +1,36 @@
 module.exports = {
-	blogRequest: blogRequest,
-	blogPostRequest: blogPostRequest
+    request: pageRequest,
+    postRequest: postRequest
 };
 
-function responseCallBack(response, posts) {
-	response.render('blog', {
+function responseCallBack(response, posts, nextPage, previousPage) {
+    response.render('blog', {
         locals: {
             node_server_url: 'http://ve.bonta-kun.net',
             title: "blog",
-            posts: posts
+            posts: posts,
+            nextPage: nextPage,
+            previousPage: previousPage
         }
     });
 }
 
-function blogRequest(request, response) {
-	var page = request.params.pageNumber;
-	
-	if (page && parseInt(page) && page > 0)
-		page--;
-	
-	
-	var blogModel = require("../models/blog.js").selectPostsWithOffset(page ? page * 5 : 0, function (posts) {
-		responseCallBack(response, posts);
-	});	
+function pageRequest(request, response) {
+    var page = parseInt(request.params.pageNumber);
+    
+    var blogModel = require("../models/blog.js").selectPostsWithOffset(
+            page && page > 0 ? (page - 1) * 5 : 0, 
+            function (posts) {
+        responseCallBack(
+            response, posts, 
+            page && page > 0 ? page + 1 : 2, 
+            page - 1);
+    });    
 }
 
-function blogPostRequest(request, response) {
-	var postName = request.params.post;
-	var blogModel = require("../models/blog.js").selectPostByTitle(postName, function (posts) {
-		responseCallBack(response, posts);
-	});
+function postRequest(request, response) {
+    var postName = request.params.post;
+    var blogModel = require("../models/blog.js").selectPostByTitle(postName, function (posts) {
+        responseCallBack(response, posts);
+    });
 }

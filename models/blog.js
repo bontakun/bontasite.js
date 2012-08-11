@@ -12,7 +12,6 @@ var queryForPostsByName =
 	"SELECT post_name, post_date_gmt, post_content, post_title " +
 	"FROM wp_posts WHERE post_type = 'post' AND post_status = 'publish' AND post_name = ?";
 
-	
 function getConnection() {
 	var mysql      = require('mysql');
 	var connection = mysql.createConnection({
@@ -28,25 +27,26 @@ function getConnection() {
 
 function selectPostsWithOffset(offset, callback) {
 	var conn = getConnection();
-	var query = conn.query(queryForPosts, [offset], function (err, rows) {
-		parseResults(err, rows, callback);
+	var query = conn.query(queryForPosts, [offset], function (error, rows) {
+		parseResults(error, rows, callback);
 	});
 	conn.end();
 }
 
 function selectPostByTitle(title, callback) {
 	var conn = getConnection();
-	var query = conn.query(queryForPostsByName, [title], function (err, rows) {
-		parseResults(err, rows, callback);
+	var query = conn.query(queryForPostsByName, [title], function (error, rows) {
+		parseResults(error, rows, callback);
 	});
 	conn.end();
 }
 
-function parseResults(err, rows, callback) {
+function parseResults(error, rows, callback) {
 	var posts = [];
 
-	if (err) {
-		console.log(err);
+	if (error) {
+		console.error("Error retrieving data records: " + error);
+		return;
 	} else {
 		for (var i = 0; i < rows.length; i++) {
 			posts.push({

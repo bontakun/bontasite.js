@@ -1,6 +1,8 @@
-module.exports.aboutRequest = aboutRequest;
+module.exports = {
+	request: request
+};
 
-function aboutRequest(request, response) {
+function request(request, response) {
     response.render('about', {
         locals: {
             node_server_url: 'http://ve.bonta-kun.net',

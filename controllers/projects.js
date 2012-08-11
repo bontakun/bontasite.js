@@ -1,6 +1,8 @@
-module.exports.projectsRequest = projectsRequest;
+module.exports = {
+	request: request
+};
 
-function projectsRequest(request, response) {
+function request(request, response) {
     response.render('projects', {
         locals: {
             node_server_url: 'http://ve.bonta-kun.net',

@@ -1,6 +1,8 @@
-module.exports.indexRequest = indexRequest;
+module.exports = {
+	request: request
+};
 
-function indexRequest(request, response) {
+function request(request, response) {
     response.render('index', {
         locals: {
             node_server_url: 'http://ve.bonta-kun.net'
