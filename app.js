@@ -42,6 +42,9 @@ app.all('/contact', contact.request);
 var about = require('./controllers/about.js');
 app.all('/about', about.request);
 
+var gameServerStatus = require('./controllers/gameServerStatus.js');
+app.all('/gameServerStatus', gameServerStatus.request);
+
 //var fourOFour = require('./controllers/404.js');
 //app.all('*', fourOFour.request);
 

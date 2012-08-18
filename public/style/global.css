@@ -32,7 +32,7 @@ div#navigation {
 div#navigation a {
     padding: 3px;
     margin-left: 10px;
-    margin-right: 40px;
+    margin-right: 20px;
 }
 
 h1 {
@@ -115,4 +115,11 @@ a#previousPage {
 
 a#nextPage {
     float: right;
+}
+
+/* games */
+
+.gameColumn {
+	display: inline-block;
+	min-width: 300px;
 }
