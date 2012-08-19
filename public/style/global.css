@@ -119,6 +119,11 @@ a#nextPage {
 
 /* games */
 
+.serverInfo {
+	padding-top: 10px;
+	padding-bottom: 20px;
+}
+
 .gameColumn {
 	display: inline-block;
 	min-width: 300px;

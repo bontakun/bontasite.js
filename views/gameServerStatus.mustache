@@ -1,10 +1,16 @@
-<!-- <img class="headerImage" height="560px" width="930px" src="/images/games/tf2/Lone_Sniper.jpg"></img> -->
-
 <p>Here you'll find the complete listing of all bonta-kun.net gaming servers.</p>
 
 {{#servers}}
-	<img class="headerImage" height="423px" width="930px" src="/images/games/tf2/Crew.jpg"></img>
-	<div>
+	{{#image}}
+		<img class="headerImage" height="{{height}}" width="{{width}}" src="{{{url}}}" />
+	{{/image}}
+	
+	{{#error}}
+		<p>{{error}}</p>
+	{{/error}}
+	
+	{{#hostname}}
+	<div class="serverInfo">
 		<span class="gameColumn">
 			<b>Hostname</b>: {{hostname}}:{{port}}
 		</span>
@@ -26,4 +32,5 @@
 			<b>Private</b>: {{passwordRequired}} 
 		</span>
 	</div>
+	{{/hostname}}
 {{/servers}}
