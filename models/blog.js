@@ -19,7 +19,7 @@ function getConnection() {
 		user         : 'username',
 		password     : 'password',
 		database     : 'database',
-		charset     : 'UTF8_GENERAL_CI',
+		charset      : 'UTF8_GENERAL_CI',
 		insecureAuth : true
 	});
 	return connection;
